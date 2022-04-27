@@ -8,7 +8,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
-import org.jboss.jandex.Main;
+
+import javax.swing.text.html.ListView;
 
 public class MainLayout extends AppLayout {
 
@@ -34,8 +35,16 @@ public class MainLayout extends AppLayout {
         RouterLink listView = new RouterLink("Cash Accounts", CashAccountListView.class);
         listView.setHighlightCondition(HighlightConditions.sameLocation());
 
+        RouterLink addressListView = new RouterLink("Addresses", AddressListView.class);
+        addressListView.setHighlightCondition(HighlightConditions.sameLocation());
+
+        RouterLink partnerListView = new RouterLink("Partners", PartnerListView.class);
+        partnerListView.setHighlightCondition(HighlightConditions.sameLocation());
+
         addToDrawer(new VerticalLayout(
             listView,
+            addressListView,
+            partnerListView,
             new RouterLink("Dashboard", DashboardView.class)
         ));
     }

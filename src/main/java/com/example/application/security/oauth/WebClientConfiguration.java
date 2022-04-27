@@ -3,8 +3,6 @@ package com.example.application.security.oauth;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.oauth2.client.CommonOAuth2Provider;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
@@ -26,10 +24,7 @@ public class WebClientConfiguration {
             @Value("${spring.security.oauth2.client.provider.dbApi.authorization-uri}") String authorizationUri,
             @Value("${spring.security.oauth2.client.provider.dbApi.token-uri}") String tokenUri,
             @Value("${spring.security.oauth2.client.provider.dbApi.jwk-set-uri}") String jwkSetUri,
-            @Value("${spring.security.oauth2.client.provider.dbApi.user-info-uri}") String userInfoUri,
-            @Value("${spring.security.oauth2.client.registration.github.client-id}") String gitHubClientId,
-            @Value("${spring.security.oauth2.client.registration.github.client-secret}") String gitHubClientSecret
-
+            @Value("${spring.security.oauth2.client.provider.dbApi.user-info-uri}") String userInfoUri
     ) {
 
         List<String> scopes = Stream.of(scope.split(","))
@@ -49,13 +44,7 @@ public class WebClientConfiguration {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .build();
 
-        ClientRegistration githubRegristration =
-                CommonOAuth2Provider.GITHUB.getBuilder("github")
-                        .clientId(gitHubClientId)
-                        .clientSecret(gitHubClientSecret)
-                        .build();
-
-        return new InMemoryClientRegistrationRepository(dbApiRegistration, githubRegristration);
+        return new InMemoryClientRegistrationRepository(dbApiRegistration);
     }
 
 }
