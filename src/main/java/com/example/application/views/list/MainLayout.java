@@ -9,8 +9,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
-import javax.swing.text.html.ListView;
-
 public class MainLayout extends AppLayout {
 
     public MainLayout() {
