@@ -21,7 +21,7 @@ public class CashAccountTransactionService {
 
     public List<CashAccountTransaction> getCashAccountTransactions(String accessToken, String iban) {
         RestTemplate restTemplate = new RestTemplate();
-        String resourceUrl = appProperties.getDbApiCashAccountTransactionsUrl() + "?iban=" + iban;
+        String resourceUrl = appProperties.getDbApiCashAccountTransactionsUrl() + "?iban=" + iban + "&limit=200";
 
         Map<String, String> uriVariables = new HashMap<>();
         uriVariables.put("iban", iban);

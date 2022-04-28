@@ -1,14 +1,14 @@
 package com.example.application.data.model.partners;
 
 public class CavState {
-    private String state;
+    private State state;
     private String cavTimestamp;
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
         this.state = state;
     }
 

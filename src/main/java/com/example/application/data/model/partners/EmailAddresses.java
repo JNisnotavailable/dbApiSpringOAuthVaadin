@@ -1,14 +1,14 @@
 package com.example.application.data.model.partners;
 
 public class EmailAddresses {
-    private String emailAddressType;
     private String emailAddress;
+    private EmailAddressType emailAddressType;
 
-    public String getEmailAddressType() {
+    public EmailAddressType getEmailAddressType() {
         return emailAddressType;
     }
 
-    public void setEmailAddressType(String emailAddressType) {
+    public void setEmailAddressType(EmailAddressType emailAddressType) {
         this.emailAddressType = emailAddressType;
     }
 

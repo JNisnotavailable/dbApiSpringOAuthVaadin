@@ -1,16 +1,16 @@
 package com.example.application.data.model.partners;
 
 public class PhoneNumbers {
-    private String communicationType;
+    private CommunicationType communicationType;
     private String internationalAreaCode;
     private String areaCode;
     private String telephoneNumber;
 
-    public String getCommunicationType() {
+    public CommunicationType getCommunicationType() {
         return communicationType;
     }
 
-    public void setCommunicationType(String communicationType) {
+    public void setCommunicationType(CommunicationType communicationType) {
         this.communicationType = communicationType;
     }
 

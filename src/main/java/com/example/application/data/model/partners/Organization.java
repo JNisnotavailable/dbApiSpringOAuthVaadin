@@ -3,11 +3,11 @@ package com.example.application.data.model.partners;
 import java.util.List;
 
 public class Organization {
-    public String organizationName;
-    public List<TradeRegisterEntry> tradeRegisterEntryList;
-    private List<TaxIdentifications> taxIdentifications;
     private List<Affiliations> affiliations;
+    public String organizationName;
     private List<RepresentativeFunctions> representativeFunctions;
+    private List<TaxIdentifications> taxIdentifications;
+    public TradeRegisterEntry tradeRegisterEntry;
 
     public String getOrganizationName() {
         return organizationName;
@@ -15,14 +15,6 @@ public class Organization {
 
     public void setOrganizationName(String organizationName) {
         this.organizationName = organizationName;
-    }
-
-    public List<TradeRegisterEntry> getTradeRegisterEntryList() {
-        return tradeRegisterEntryList;
-    }
-
-    public void setTradeRegisterEntryList(List<TradeRegisterEntry> tradeRegisterEntryList) {
-        this.tradeRegisterEntryList = tradeRegisterEntryList;
     }
 
     public List<TaxIdentifications> getTaxIdentifications() {
@@ -47,5 +39,13 @@ public class Organization {
 
     public void setRepresentativeFunctions(List<RepresentativeFunctions> representativeFunctions) {
         this.representativeFunctions = representativeFunctions;
+    }
+
+    public TradeRegisterEntry getTradeRegisterEntry() {
+        return tradeRegisterEntry;
+    }
+
+    public void setTradeRegisterEntry(TradeRegisterEntry tradeRegisterEntry) {
+        this.tradeRegisterEntry = tradeRegisterEntry;
     }
 }

@@ -2,8 +2,8 @@ package com.example.application.data.model.partners;
 
 public class TaxIdentifications {
     private String country;
-    private String type;
     private String number;
+    private Type type;
 
     public String getCountry() {
         return country;
@@ -13,11 +13,11 @@ public class TaxIdentifications {
         this.country = country;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

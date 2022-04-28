@@ -3,52 +3,52 @@ package com.example.application.data.model.partners;
 import java.util.List;
 
 public class Partner {
-    private String partnerType;
-    private String contractingBank;
-    private List<NaturalPerson> naturalPerson;
-    private List<Community> community;
-    private List<Organization> organization;
+    private AdditionalPersonalData additionalPersonalData;
+    private Community community;
+    private ContractingBank contractingBank;
     private List<EmailAddresses> emailAddresses;
+    private NaturalPerson naturalPerson;
+    private Organization organization;
+    private PartnerType partnerType;
     private List<PhoneNumbers> phoneNumbers;
-    private List<AdditionalPersonalData> additionalPersonalData;
 
-    public String getPartnerType() {
+    public PartnerType getPartnerType() {
         return partnerType;
     }
 
-    public void setPartnerType(String partnerType) {
+    public void setPartnerType(PartnerType partnerType) {
         this.partnerType = partnerType;
     }
 
-    public String getContractingBank() {
+    public ContractingBank getContractingBank() {
         return contractingBank;
     }
 
-    public void setContractingBank(String contractingBank) {
+    public void setContractingBank(ContractingBank contractingBank) {
         this.contractingBank = contractingBank;
     }
 
-    public List<NaturalPerson> getNaturalPerson() {
+    public NaturalPerson getNaturalPerson() {
         return naturalPerson;
     }
 
-    public void setNaturalPerson(List<NaturalPerson> naturalPerson) {
+    public void setNaturalPerson(NaturalPerson naturalPerson) {
         this.naturalPerson = naturalPerson;
     }
 
-    public List<Community> getCommunity() {
+    public Community getCommunity() {
         return community;
     }
 
-    public void setCommunity(List<Community> community) {
+    public void setCommunity(Community community) {
         this.community = community;
     }
 
-    public List<Organization> getOrganization() {
+    public Organization getOrganization() {
         return organization;
     }
 
-    public void setOrganization(List<Organization> organization) {
+    public void setOrganization(Organization organization) {
         this.organization = organization;
     }
 
@@ -68,11 +68,11 @@ public class Partner {
         this.phoneNumbers = phoneNumbers;
     }
 
-    public List<AdditionalPersonalData> getAdditionalPersonalData() {
+    public AdditionalPersonalData getAdditionalPersonalData() {
         return additionalPersonalData;
     }
 
-    public void setAdditionalPersonalData(List<AdditionalPersonalData> additionalPersonalData) {
+    public void setAdditionalPersonalData(AdditionalPersonalData additionalPersonalData) {
         this.additionalPersonalData = additionalPersonalData;
     }
 }
