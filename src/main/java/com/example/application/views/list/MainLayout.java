@@ -1,5 +1,8 @@
 package com.example.application.views.list;
 
+import com.example.application.views.list.partner.EmailAddressesListView;
+import com.example.application.views.list.partner.NaturalPersonListView;
+import com.example.application.views.list.partner.PhoneNumbersListView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -36,13 +39,21 @@ public class MainLayout extends AppLayout {
         RouterLink addressListView = new RouterLink("Addresses", AddressListView.class);
         addressListView.setHighlightCondition(HighlightConditions.sameLocation());
 
-        RouterLink partnerListView = new RouterLink("Partners", PartnerListView.class);
-        partnerListView.setHighlightCondition(HighlightConditions.sameLocation());
+        RouterLink naturalPersonListView = new RouterLink("Partner - Natural Person", NaturalPersonListView.class);
+        naturalPersonListView.setHighlightCondition(HighlightConditions.sameLocation());
+
+        RouterLink emailAddressListView = new RouterLink("Partner - Email Addresses", EmailAddressesListView.class);
+        emailAddressListView.setHighlightCondition(HighlightConditions.sameLocation());
+
+        RouterLink phoneNumberListView = new RouterLink("Partner - Phone Numbers", PhoneNumbersListView.class);
+        phoneNumberListView.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
             listView,
             addressListView,
-            partnerListView,
+            naturalPersonListView,
+            emailAddressListView,
+            phoneNumberListView,
             new RouterLink("Dashboard", DashboardView.class)
         ));
     }
