@@ -8,15 +8,12 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
-import com.vaadin.flow.router.*;
-import org.hibernate.event.internal.MergeContext;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteParameters;
 
 import javax.annotation.security.PermitAll;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Route(value = "cashAccounts", layout = MainLayout.class)
 @PermitAll
@@ -43,7 +40,7 @@ public class CashAccountListView extends VerticalLayout {
         cashAccountsGrid.setItems(cashAccounts);
 
         cashAccountsGrid.addColumn(new ComponentRenderer<>(item -> {
-            Button getTransactionsButton = new Button("Get Transactions");
+            Button getTransactionsButton = new Button("Transactions");
                 getTransactionsButton.addClickListener(click -> UI.getCurrent().navigate(CashAccountTransactionsListView.class, new RouteParameters("iban", item.getIban())));
                 HorizontalLayout editLayout = new HorizontalLayout(getTransactionsButton);
                 editLayout.setWidth("100%");

@@ -3,7 +3,10 @@ package com.example.application.views.list;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.ListItem;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -34,9 +37,50 @@ public class HomeView extends VerticalLayout {
         HorizontalLayout root = new HorizontalLayout();
         root.setWidthFull();
         root.setAlignItems(Alignment.CENTER);
-        Span name = new Span("Unity");
-        name.getStyle().set("padding-left", "1rem");
-        root.add(name);
+        root.setFlexGrow(1);
+        root.addClassNames("contrast-5pct");
+
+        return root;
+    }
+
+
+    private Component body() {
+        VerticalLayout root = new VerticalLayout();
+
+        root.add(new H1("Berufsbildungswerk Praktikum Deutsche Bank 19.04.2022 - 29.04.2022"));
+        root.add(new Paragraph("Dies ist eine Webserver App"));
+        root.add(new ListItem("Java 11"));
+        root.add(new ListItem("Spring Boot 2.6.7"));
+
+        ListItem listItemSpringSecurity = new ListItem("Spring Security 5.6.3");
+        com.vaadin.flow.component.button.Button springSecurityButton= new com.vaadin.flow.component.button.Button();
+        springSecurityButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        springSecurityButton.setText("Spring Security");
+
+        Anchor anchorSpringSecurity = new Anchor("https://spring.io/projects/spring-security", springSecurityButton);
+        anchorSpringSecurity.setHref("https://spring.io/projects/spring-security");
+        listItemSpringSecurity.add(anchorSpringSecurity);
+        root.add(listItemSpringSecurity);
+
+        ListItem listItemOAuth = new ListItem("Spring OAuth 5.6.3");
+        Button oAuthButton = new Button();
+        oAuthButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        oAuthButton.setText("OAuth2");
+
+        Anchor anchorOAuth = new Anchor("https://oauth.net/2/", oAuthButton);
+        anchorOAuth.setHref("https://oauth.net/2");
+        listItemOAuth.add(anchorOAuth);
+        root.add(listItemOAuth);
+
+        ListItem listItemVaadin = new ListItem("Vaadin");
+        Button vaadinButton = new Button();
+        vaadinButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        listItemVaadin.setText("vaadin 23.06 - Frontend Generierung");
+
+        Anchor anchorVaadin = new Anchor("https://vadin.com/docs/latest/flow/application");
+        anchorVaadin.setHref("https://vaadin.com/docs/latest/flow/application");
+        listItemVaadin.add(anchorVaadin);
+        root.add(listItemVaadin);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -56,22 +100,6 @@ public class HomeView extends VerticalLayout {
             String accessToken = client.getAccessToken().getTokenValue();
             Notification.show("Logged in with token: " + accessToken);
         }
-
-        root.setFlexGrow(1, name);
-        root.addClassNames("contrast-5pct");
-
-        return root;
-    }
-
-
-    private Component body() {
-        VerticalLayout root = new VerticalLayout();
-        Image img = new Image("images/empty-plant.png", "placeholder plant");
-        img.setWidth("200px");
-        root.add(img);
-
-        root.add(new H2("This place intentionally left empty"));
-        root.add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
 
         root.setSizeFull();
         root.setJustifyContentMode(JustifyContentMode.CENTER);
